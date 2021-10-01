@@ -1,1 +1,5 @@
 Send to GitHub
+1.) Click wip
+2.) Review and stage changes
+3.) Add comment and commit your changes
+4.) Push to GitHub
