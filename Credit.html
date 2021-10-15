@@ -3,6 +3,49 @@
 <head>
 <title>Quick Links</title>
 <meta charset="utf-8">
+<script>
+    function validateform() {
+        var firstName=document.myForm.firstName.value;
+        var lastName=document.myForm.lastName.value;
+        var address=document.myForm.Address.value;
+        var zip=document.myForm.Zip.value;
+        var socialSecurity=document.myForm.socialSecurity.value;
+        var phoneNumber=document.myForm.PhoneNumber.value;
+        var credit=document.myForm.Credit.value;
+
+        if(firstName == "" || firstName == null) {
+            alert("Please provide your first name!");
+            return false;
+        }
+        if(lastName == "" || lastName == null) {
+            alert("Please provide your last name!");
+            return false;
+        }
+        if(address == "" || address == null) {
+            alert("Please provide your address!");
+            return false;
+        }
+        if(zip == "" || isNaN(zip) || zip.length != 5 || zip == null) {
+            alert("Please provide a zip in the format #####.");
+            return false;
+        }
+        if(socialSecurity == "" || isNaN(socialSecurity) || socialSecurity.length != 9 || socialSecurity == null) {
+            alert("Please provide a social security in the format #########.");
+            return false;
+        }
+        if(phoneNumber == "" || isNaN(phoneNumber) || phoneNumber.length != 10 || phoneNumber == null) {
+            alert("Please provide a phone number in the format ##########.");
+            return false;
+        }
+        if(credit == "" || isNaN(credit) || credit.length != 3 || credit == null) {
+            alert("Please provide a credit score in the format ###.");
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+</script>
 </head>
 <style>
     h2{
@@ -16,7 +59,7 @@
     <div>Please fill the following information to know if you qualify for credit card.</div>
         <br>
     <div>
-             <form action="/action_page.php" method="post">
+            <form action="/action_page.php" method="post" name="myForm" onsubmit="return validateform()">
             <label for="fName">First Name:</label><br>
                 <input type="text" name="firstName" id="fName" placeholder="First Name" required><br>
             <label for="lastName">Last Name:</label><br>
