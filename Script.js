@@ -1,4 +1,3 @@
-/*box in rewquired hidden hideit unhide it add a class or remove a class or add a new label or remove  the label*/ 
 function validateForm(){
     var myForm = document.forms["Loan"];
     var fname = myForm["fname"];
