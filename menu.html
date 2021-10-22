@@ -4,9 +4,109 @@
     <title>Menu</title>
     <meta charset="utf-8">
 </head>
-<header>
-    <h1><a href="">The American Bank</a></h1>    
-    </header>
+<style>
+  
+    body{
+      background-color: whitesmoke;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    nav{
+      margin: 0;
+      padding: 0px, 20px;
+      text-align: center;
+  }
+  
+  nav ol li{
+      display: -webkit-inline-box;
+      list-style-type: none;
+  }
+  nav ol{
+    margin: 5px;
+    padding: 5px;
+    
+  }
+   
+  li a{
+    text-decoration: none;
+    display: block;
+    padding: 10px 45px;
+    margin-right: 10px;
+    background-color: lightgoldenrodyellow;
+    color:black;
+  }
+  li a:hover{
+    background-color: royalblue;
+  
+  }
+  
+    .logo{
+      position: relative;
+      width: 100%;
+      
+  }
+  h2{
+    text-align: center;
+  }
+  h3{
+    text-align: center;
+  }
+  hr{
+    
+    border-bottom: 4px solid mediumblue;
+  }
+  .menudown {
+    display: inline-block;
+    
+  }
+  .menudown-content {
+    display: none;
+    position: absolute;
+  }
+  .menudown:hover .menudown-content {
+    display: block;
+  }
+  .menudown-content a {
+    display: block;
+    color: black;
+    padding: 5px;
+    text-decoration: none;
+  }
+  .menudown-content a:hover {
+    color: white;
+    background-color: skyblue;
+  }
+  .quickdown {
+    display: inline-block;
+    
+  }
+  .quickdown-content {
+    display: none;
+    position: absolute;
+   text-align: center;
+   width: auto;
+    overflow:auto;
+  }
+  .quickdown:hover .quickdown-content {
+    display: block;
+    
+  }
+  .quickdown-content a {
+    display: block;
+    color: black;
+    padding: 5px;
+    text-decoration: none;
+  }
+  .quickdown-content a:hover {
+    color: white;
+    background-color: skyblue;
+  }
+  </style>
+  
+  <header>
+    <a href="HomePage.html">
+    <img class="logo" src="Image/American_Bank.png" alt="Logo of the bank">
+    </a>
+  </header>
 
     <div class="menudown">
         <li><a href="#">Menu</a></li>
