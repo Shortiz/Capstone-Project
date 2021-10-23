@@ -6,20 +6,145 @@
 <meta charset="utf-8">
 </head>
 <style>
-    h2{
-        text-align: center;
+  
+    body{
+      background-color: whitesmoke;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
-
-</style>
+    nav{
+      margin: 0;
+      padding: 0px, 20px;
+      text-align: center;
+  }
+  
+  nav ol li{
+      display: -webkit-inline-box;
+      list-style-type: none;
+  }
+  nav ol{
+    margin: 5px;
+    padding: 5px;
+    
+  }
+   
+  li a{
+    text-decoration: none;
+    display: block;
+    padding: 10px 45px;
+    margin-right: 10px;
+    background-color: lightgoldenrodyellow;
+    color:black;
+  }
+  li a:hover{
+    background-color: royalblue;
+  
+  }
+  
+    .logo{
+      position: relative;
+      width: 100%;
+      
+  }
+  h2{
+    text-align: center;
+  }
+  h3{
+    text-align: center;
+  }
+  hr{
+    
+    border-bottom: 4px solid mediumblue;
+  }
+  .menudown {
+    display: inline-block;
+    
+  }
+  .menudown-content {
+    display: none;
+    position: absolute;
+  }
+  .menudown:hover .menudown-content {
+    display: block;
+  }
+  .menudown-content a {
+    display: block;
+    color: black;
+    padding: 5px;
+    text-decoration: none;
+  }
+  .menudown-content a:hover {
+    color: white;
+    background-color: skyblue;
+  }
+  .quickdown {
+    display: inline-block;
+    
+  }
+  .quickdown-content {
+    display: none;
+    position: absolute;
+   text-align: center;
+   width: auto;
+    overflow:auto;
+  }
+  .quickdown:hover .quickdown-content {
+    display: block;
+    
+  }
+  .quickdown-content a {
+    display: block;
+    color: black;
+    padding: 5px;
+    text-decoration: none;
+  }
+  .quickdown-content a:hover {
+    color: white;
+    background-color: skyblue;
+  }
+  </style>
+  
+  </head>
+  <body>
+      <header>
+          <a href="HomePage.html">
+          <img class="logo" src="Image/American_Bank.png" alt="Logo of the bank">
+          </a>
+        </header>
+    <hr>
+    <br>
+    <nav >
+      <ol>
+    <div class="menudown">
+      <li><a href="#">Menu</a></li>
+      <div class="menudown-content">
+      <a href="DigitalBanking.html">Digital Banking</a>
+      <a href="DepositRate.html">Deposit Rate</a>
+      <a href="AboutUs.html">About Us</a>
+      </div>
+      </div>
+      <li><a href="Login.html">Login</a> &nbsp; </li>
+        <div class="quickdown">
+          <li><a href="#">Quick Links</a></li>
+            <div class="quickdown-content">
+              <a href="Loan.html">Apply for Loan</a>
+              <a href="Credit.html">Credit Card</a>
+        
+            </div>
+        </div>
+        <li><a href="ContactUs.html">Contact Us</a></li> 
+      </ol>
+   
+    </nav>
+    </body><br><hr>
 <body>
     <h2>Apply for loan</h2>
     <h3>Loan Products</h3>
     <p>Since 1905, American Bank has been a trusted financial partner in providing lending solutions to meet your unique needs. 
        Our loan products are competitively priced and have flexible terms to assist you in attaining your short and long-term goals. 
        Our community banking approach provides for local decision making and easy access to our banking professionals.
-       Please call or stop by one of our branch offices for rates and additional information</p>
+       Please call or stop by one of our branch offices for rates and additional information.</p>
     
-    <h3>We offer a wide range of loans</h3>
+    <h3>We offer a wide range of loans in the market with best intrest rates.</h3>
         <ul>
             <li>New Automobile Loan</li>
             <li>Used Automobile Loan</li>
@@ -32,13 +157,17 @@
            <div>Please fill the following data to know how much loan is qualied.</div>
         <br>
            <div>
-            <form action="Script.js"  onsubmit="return validateForm()" method="post" enctype="multipart/form-data" name="Loan" id="Loan">
+            <form action="Loan.php"  onsubmit="return validateForm()" method="post" enctype="multipart/form-data" name="Loan" id="Loan">
                 <label for="fname" id="fnameLabel">First Name:</label><br>
                     <input type="text" name="fname" id="fname" placeholder="First Name" ><br>
                 <label for="lname" id="lnameLabel">Last Name: </label><br>
                     <input type="text" name="lname" id="lname" placeholder="Last Name"><br>
                <label for="address" id="addressLabel">Address:</label><br>
                     <input type="text" name="address" id="address" placeholder="123Long City Drive"><br>
+                <label for="City" id="cityLabel">City:</label><br>
+                    <input type="text" name="city" id="city" placeholder="Scranton"><br>
+                <label for="state" id="stateLabel">State:</label><br>
+                    <input type="text" name="state" id="state" placeholder="Pennsylvania"><br>
                 <label for="zip" id="zipLabel">Zip Code:</label><br>
                     <input type="number" name="zip" id="zip" placeholder="12345"><br>
                 <label for="socialSecurity" id="socialLabel">Social Securtiy Number:</label><br>
