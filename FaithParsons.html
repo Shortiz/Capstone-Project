@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <table id="test" border="1">
+      <thead>
+        <th>Date</th>
+        <th>Information</th>
+        <th>Amount</th>
+        <th>Running Sum</th>
+      </thead>
+      <tbody id="tbodyTest">
+        <tr>
+          <td>08-18-2021</td>
+          <td>Deposit Check</td>
+          <td class="editable" contenteditable='true'>1200</td>
+          <td>1200</td>
+        </tr>
+        <tr>
+          <td>08-20-2021</td>
+          <td>ATM Withdrawl</td>
+          <td class="editable" contenteditable='true'></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>08-23-2021</td>
+          <td>Direct Deposit</td>
+          <td class="editable" contenteditable='true'></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>09-01-2021</td>
+          <td>Grove Diner</td>
+          <td class="editable" contenteditable='true'></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>09-12-2021</td>
+          <td>Barnes & Nobles</td>
+          <td class="editable" contenteditable='true'></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>09-26-2021</td>
+          <td>Sheetz</td>
+          <td class="editable" contenteditable='true'></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>10-19-2021</td>
+          <td>Direct Deposit</td>
+          <td class="editable" contenteditable='true'></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <script type="text/javascript">
+        $('#tbodyTest >tr').on('focusout', 'td.editable', (e) => {
+  let target = $(e.target),
+    parent_row = $(e.target).closest('tr'),
+    previous_row = parent_row.prev();
+  setTimeout(() => {
+    if (!isNaN(target.text())) {
+		  $('#tbodyTest').children('tr').each((i,e)=>{
+    $(e).find('td').last().text(Number($(e).find('td:eq(2)').text()) +Number($(e).prev().find('td').last().text()))
+    })
+    }else{
+      target.text("0");
+  parent_row.find('td').last().text("0");
+  $('#tbodyTest').children('tr').each((i,e)=>{
+  $(e).find('td').last().text(Number($(e).find('td:eq(2)').text()) +Number($(e).prev().find('td').last().text()))
+})
+    }
+  })
+})
+    </script>
+</body>
+</html>
