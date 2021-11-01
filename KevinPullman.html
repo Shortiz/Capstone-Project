@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <table id="test" border="1">
+      <thead>
+        <th>Date</th>
+        <th>Information</th>
+        <th>Amount</th>
+        <th>Running Sum</th>
+      </thead>
+      <tbody id="tbodyTest">
+        <tr>
+          <td>09-21-2021</td>
+          <td>Withdrawl</td>
+          <td class="editable" contenteditable='true'>400</td>
+          <td>350</td>
+        </tr>
+        <tr>
+          <td>09-25-2021</td>
+          <td>Krispy Kreme</td>
+          <td class="editable" contenteditable='true'></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>09-30-2021</td>
+          <td>Bath & Body Works</td>
+          <td class="editable" contenteditable='true'></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>10-01-2021</td>
+          <td>Deposit Check</td>
+          <td class="editable" contenteditable='true'></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>10-08-2021</td>
+          <td>Tax Refund</td>
+          <td class="editable" contenteditable='true'></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>10-15-2021</td>
+          <td>Pumpkin Patch</td>
+          <td class="editable" contenteditable='true'></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>10-21-2021</td>
+          <td>Party City</td>
+          <td class="editable" contenteditable='true'></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>10-30-2021</td>
+          <td>Direct Deposit</td>
+          <td class="editable" contenteditable='true'></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <script type="text/javascript">
+        $('#tbodyTest >tr').on('focusout', 'td.editable', (e) => {
+  let target = $(e.target),
+    parent_row = $(e.target).closest('tr'),
+    previous_row = parent_row.prev();
+  setTimeout(() => {
+    if (!isNaN(target.text())) {
+		  $('#tbodyTest').children('tr').each((i,e)=>{
+    $(e).find('td').last().text(Number($(e).find('td:eq(2)').text()) +Number($(e).prev().find('td').last().text()))
+    })
+    }else{
+      target.text("0");
+  parent_row.find('td').last().text("0");
+  $('#tbodyTest').children('tr').each((i,e)=>{
+  $(e).find('td').last().text(Number($(e).find('td:eq(2)').text()) +Number($(e).prev().find('td').last().text()))
+})
+    }
+  })
+})
+    </script>
+</body>
+</html>

@@ -2,50 +2,8 @@
 <html lang="en">
 <head>
 <title>Quick Links</title>
+<script src="Credit.js"></script>
 <meta charset="utf-8">
-<script>
-    function validateform() {
-        var firstName=document.myForm.firstName.value;
-        var lastName=document.myForm.lastName.value;
-        var address=document.myForm.Address.value;
-        var zip=document.myForm.Zip.value;
-        var socialSecurity=document.myForm.socialSecurity.value;
-        var phoneNumber=document.myForm.PhoneNumber.value;
-        var credit=document.myForm.Credit.value;
-
-        if(firstName == "" || firstName == null) {
-            alert("Please provide your first name!");
-            return false;
-        }
-        if(lastName == "" || lastName == null) {
-            alert("Please provide your last name!");
-            return false;
-        }
-        if(address == "" || address == null) {
-            alert("Please provide your address!");
-            return false;
-        }
-        if(zip == "" || isNaN(zip) || zip.length != 5 || zip == null) {
-            alert("Please provide a zip in the format #####.");
-            return false;
-        }
-        if(socialSecurity == "" || isNaN(socialSecurity) || socialSecurity.length != 9 || socialSecurity == null) {
-            alert("Please provide a social security in the format #########.");
-            return false;
-        }
-        if(phoneNumber == "" || isNaN(phoneNumber) || phoneNumber.length != 10 || phoneNumber == null) {
-            alert("Please provide a phone number in the format ##########.");
-            return false;
-        }
-        if(credit == "" || isNaN(credit) || credit.length != 3 || credit == null) {
-            alert("Please provide a credit score in the format ###.");
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
-</script>
 </head>
 <style>
     h2{
@@ -54,26 +12,31 @@
 
 </style>
 <body>
+    <nav id="" class="">
+        <script defer src="Credit.js"></script>
+    </nav>
     <main>
     <h2>Apply for Credit Card</h2>
     <div>Please fill the following information to know if you qualify for credit card.</div>
         <br>
     <div>
-            <form action="/action_page.php" method="post" name="myForm" onsubmit="return validateform()">
-            <label for="fName">First Name:</label><br>
-                <input type="text" name="firstName" id="fName" placeholder="First Name" required><br>
-            <label for="lastName">Last Name:</label><br>
-                <input type="text" name="lastName" id="lName" placeholder="Last Name" required><br>
-            <label for="address">Address:</label><br>
-                <input type="text" name="Address" id="address" placeholder="123 Maplewood Drive"><br>
-            <label for="zip">Zip Code:</label><br>
-                <input type="text" name="Zip" id="zip" placeholder="12356"><br>
-            <label for="SS">Social Securtiy Number:</label><br>
-                <input type="text" name="socialSecurity" id="SS" placeholder="123-45-6789"><br>
-            <label for="phoneNumber">Phone Number:</label><br>
-                <input type="tel" name="PhoneNumber" id="phoneNumber" placeholder="123-456-7890"><br>
-            <label for="CreditScore">Credit Score:</label><br>
-                <input type="CreditScore" name="Credit" id="Credit" placeholder="800" required><br>
+        <div id="error"></div>
+        <p><span class="error"></span></p>
+            <form action="Credit.php" onsubmit="return validatetheForm()" method="post" enctype="multipart/form-data" name="Credit" id="Credit">
+                <label for="firstName" id="firstNameLabel">First Name:</label><br>
+                <input type="text" name="firstName" id="firstName" placeholder="First Name"><br>
+            <label for="lastName" id="lastNameLabel">Last Name:</label><br>
+                <input type="text" name="lastName" id="lastName" placeholder="Last Name"><br>
+            <label for="address" id="addressLabel">Address:</label><br>
+                <input type="text" name="address" id="address" placeholder="123 Maplewood Drive"><br>
+            <label for="zip" id="zipLabel">Zip Code:</label><br>
+                <input type="number" name="zip" id="zip" placeholder="12356"><br>
+            <label for="socialSecurity" id="socialSecurityLabel">Social Securtiy Number:</label><br>
+                <input type="password" name="socialSecurity" id="socialSecurity" placeholder="123-45-6789"><br>
+            <label for="phoneNumber" id="phoneNumberLabel">Phone Number:</label><br>
+                <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="123-456-7890"><br>
+            <label for="Credit" id="CreditLabel">Credit Score:</label><br>
+                <input type="number" name="Credit" id="Credit" placeholder="800"><br>
                 <br>
                 <input type="submit" value="submit">
     </form>
