@@ -1,69 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+        table{
+            text-align: center;
+            }
+td{
+    width: 100px;
+    background-color: white;
+}
+th{
+    background-color: white;
+}
+    </style>
     <script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
 </head>
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <table id="test" border="1">
-      <thead>
-        <th>Date</th>
-        <th>Information</th>
-        <th>Amount</th>
-        <th>Running Sum</th>
-      </thead>
-      <tbody id="tbodyTest">
-        <tr>
-          <td>09-17-2021</td>
-          <td>PayPal Transfer</td>
-          <td class="editable" contenteditable='true'>175</td>
-          <td>175</td>
-        </tr>
-        <tr>
-          <td>09-22-2021</td>
-          <td>Deposit Check</td>
-          <td class="editable" contenteditable='true'></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>09-23-2021</td>
-          <td>Walmart</td>
-          <td class="editable" contenteditable='true'></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>10-01-2021</td>
-          <td>Amazon</td>
-          <td class="editable" contenteditable='true'></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>10-11-2021</td>
-          <td>Internet Bill</td>
-          <td class="editable" contenteditable='true'></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
+    <h1>Amanda Dowd</h1>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<table border=1 >
+    <th>Date</th>
+    <th>Information</th>
+    <th>Total</th>
+    <th>Running Total</th>
+
+<tr>
+    <td>09-17-2021</td>
+    <td>PayPal Transfer</td>
+    <td>+175</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>09-22-2021</td>
+    <td>Check Deposit</td>
+    <td>+700</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>09-23-2021</td>
+    <td>Walmart</td>
+    <td>-63</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>10-01-2021</td>
+    <td>Amazon</td>
+    <td>-47</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>10-11-2021</td>
+    <td>Internet Bill</td>
+    <td>-75</td>
+    <td></td>
+</tr>
+
+</table>
     <script type="text/javascript">
-        $('#tbodyTest >tr').on('focusout', 'td.editable', (e) => {
-  let target = $(e.target),
-    parent_row = $(e.target).closest('tr'),
-    previous_row = parent_row.prev();
-  setTimeout(() => {
-    if (!isNaN(target.text())) {
-		  $('#tbodyTest').children('tr').each((i,e)=>{
-    $(e).find('td').last().text(Number($(e).find('td:eq(2)').text()) +Number($(e).prev().find('td').last().text()))
-    })
-    }else{
-      target.text("0");
-  parent_row.find('td').last().text("0");
-  $('#tbodyTest').children('tr').each((i,e)=>{
-  $(e).find('td').last().text(Number($(e).find('td:eq(2)').text()) +Number($(e).prev().find('td').last().text()))
-})
-    }
-  })
-})
+        var total = 0;
+$("td:nth-child(3)").each(function( index ) {
+  total = parseInt($(this).text()) + parseInt(total);
+  $(this).next('td').text(total);
+});
     </script>
 </body>
 </html>

@@ -1,63 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+        table{
+            text-align: center;
+            }
+td{
+    width: 100px;
+    background-color: white;
+}
+th{
+    background-color: white;
+}
+    </style>
     <script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
 </head>
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <table id="test" border="1">
-      <thead>
-        <th>Date</th>
-        <th>Information</th>
-        <th>Amount</th>
-        <th>Running Sum</th>
-      </thead>
-      <tbody id="tbodyTest">
-        <tr>
-          <td>09-11-2021</td>
-          <td>Deposit Check</td>
-          <td class="editable" contenteditable='true'>1000</td>
-          <td>1000</td>
-        </tr>
-        <tr>
-          <td>09-20-2021</td>
-          <td>Deposit Check</td>
-          <td class="editable" contenteditable='true'></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>10-03-2021</td>
-          <td>Pancheros</td>
-          <td class="editable" contenteditable='true'></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>10-21-2021</td>
-          <td>Apple Music</td>
-          <td class="editable" contenteditable='true'></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
+    <h1>Adam Vaughan</h1>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<table border=1 >
+    <th>Date</th>
+    <th>Information</th>
+    <th>Total</th>
+    <th>Running Total</th>
+<tr>
+    <td>09-13-2021</td>
+    <td>Direct Deposit</td>
+    <td>+1000</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>09-20-2021</td>
+    <td>Check Deposit</td>
+    <td>+350</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>10-03-2021</td>
+    <td>Pancheros</td>
+    <td>-15</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>10-21-2021</td>
+    <td>Apple Music</td>
+    <td>-6</td>
+    <td></td>
+</tr>
+
+</table>
     <script type="text/javascript">
-        $('#tbodyTest >tr').on('focusout', 'td.editable', (e) => {
-  let target = $(e.target),
-    parent_row = $(e.target).closest('tr'),
-    previous_row = parent_row.prev();
-  setTimeout(() => {
-    if (!isNaN(target.text())) {
-		  $('#tbodyTest').children('tr').each((i,e)=>{
-    $(e).find('td').last().text(Number($(e).find('td:eq(2)').text()) +Number($(e).prev().find('td').last().text()))
-    })
-    }else{
-      target.text("0");
-  parent_row.find('td').last().text("0");
-  $('#tbodyTest').children('tr').each((i,e)=>{
-  $(e).find('td').last().text(Number($(e).find('td:eq(2)').text()) +Number($(e).prev().find('td').last().text()))
-})
-    }
-  })
-})
+        var total = 0;
+$("td:nth-child(3)").each(function( index ) {
+  total = parseInt($(this).text()) + parseInt(total);
+  $(this).next('td').text(total);
+});
     </script>
 </body>
 </html>

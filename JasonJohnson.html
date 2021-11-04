@@ -1,75 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+        table{
+            text-align: center;
+            }
+td{
+    width: 100px;
+    background-color: white;
+}
+th{
+    background-color: white;
+}
+    </style>
     <script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
 </head>
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <table id="test" border="1">
-      <thead>
-        <th>Date</th>
-        <th>Information</th>
-        <th>Amount</th>
-        <th>Running Sum</th>
-      </thead>
-      <tbody id="tbodyTest">
-        <tr>
-          <td>10-01-2021</td>
-          <td>CashApp Transfer</td>
-          <td class="editable" contenteditable='true'>137</td>
-          <td>137</td>
-        </tr>
-        <tr>
-          <td>10-04-2021</td>
-          <td>Deposit Check</td>
-          <td class="editable" contenteditable='true'></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>10-06-2021</td>
-          <td>Fine Wine & Good Spirits</td>
-          <td class="editable" contenteditable='true'></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>10-10-2021</td>
-          <td>GameStop</td>
-          <td class="editable" contenteditable='true'></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>10-17-2021</td>
-          <td>Spirit Halloween</td>
-          <td class="editable" contenteditable='true'></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>10-24-2021</td>
-          <td>Reaper's Revenge</td>
-          <td class="editable" contenteditable='true'></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
+    <h1>Jason Johnson</h1>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<table border=1 >
+    <th>Date</th>
+    <th>Information</th>
+    <th>Total</th>
+    <th>Running Total</th>
+
+<tr>
+    <td>10-01-2021</td>
+    <td>CashApp Transfer</td>
+    <td>+137</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>10-04-2021</td>
+    <td>Check Deposit</td>
+    <td>+1500</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>10-06-2021</td>
+    <td>Fine Wine & Good Spirits</td>
+    <td>-43</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>10-10-2021</td>
+    <td>GameStop</td>
+    <td>-200</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>10-17-2021</td>
+    <td>Spirit Halloween</td>
+    <td>-67</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>10-24-2021</td>
+    <td>Reaper's Revenge</td>
+    <td>-52</td>
+    <td></td>
+</tr>
+
+</table>
     <script type="text/javascript">
-        $('#tbodyTest >tr').on('focusout', 'td.editable', (e) => {
-  let target = $(e.target),
-    parent_row = $(e.target).closest('tr'),
-    previous_row = parent_row.prev();
-  setTimeout(() => {
-    if (!isNaN(target.text())) {
-		  $('#tbodyTest').children('tr').each((i,e)=>{
-    $(e).find('td').last().text(Number($(e).find('td:eq(2)').text()) +Number($(e).prev().find('td').last().text()))
-    })
-    }else{
-      target.text("0");
-  parent_row.find('td').last().text("0");
-  $('#tbodyTest').children('tr').each((i,e)=>{
-  $(e).find('td').last().text(Number($(e).find('td:eq(2)').text()) +Number($(e).prev().find('td').last().text()))
-})
-    }
-  })
-})
+        var total = 0;
+$("td:nth-child(3)").each(function( index ) {
+  total = parseInt($(this).text()) + parseInt(total);
+  $(this).next('td').text(total);
+});
     </script>
 </body>
 </html>
