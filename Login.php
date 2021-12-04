@@ -1,4 +1,3 @@
-        padding: 0px, 20px;
 <?php
 error_reporting(0);
 session_start();

@@ -1,4 +1,3 @@
-        $credit = "Credit is required in the format ###";
 <?php
 define('DB_SERVER','localhost');
 define('DB_USERNAME', 'root');
