@@ -1,3 +1,4 @@
+session_destroy();
 <?php
 
 session_start();

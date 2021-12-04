@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table{
+            text-align: center;
+            }
+td{
+    width: 100px;
+    background-color: white;
+}
+th{
+    background-color: white;
+}
+    </style>
+    <script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
+</head>
+<body>
+    <h1>Kevin Pullman</h1>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<table border=1 >
+    <th>Date</th>
+    <th>Information</th>
+    <th>Total</th>
+    <th>Running Total</th>
+
+<tr>
+    <td>09-21-2021</td>
+    <td>Check Deposit</td>
+    <td>+450</td>
+    <td></td>
+</tr>    
+
+<tr>
+    <td>09-25-2021</td>
+    <td>Krispy Kreme</td>
+    <td>-22</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>09-30-2021</td>
+    <td>Bath & Body Works</td>
+    <td>-67</td>
+    <td></td>
+</tr>
+
+
+<tr>
+    <td>10-01-2021</td>
+    <td>Car Paymnet</td>
+    <td>-400</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>10-08-2021</td>
+    <td>Cash Deposit</td>
+    <td>+200</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>10-15-2021</td>
+    <td>Pumpkin Patch</td>
+    <td>-40</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>10-21-2021</td>
+    <td>Party City</td>
+    <td>-55</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>10-30-2021</td>
+    <td>Direct Deposit</td>
+    <td>+1200</td>
+    <td></td>
+</tr>
+
+</table>
+    <script type="text/javascript">
+        var total = 0;
+$("td:nth-child(3)").each(function( index ) {
+  total = parseInt($(this).text()) + parseInt(total);
+  $(this).next('td').text(total);
+});
+    </script>
+</body>
+</html>
