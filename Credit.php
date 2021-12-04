@@ -16,19 +16,21 @@ $Firstname = $Lastname = $address =  $city = $state = $zip = $ssnumber = $phone 
 $Firstname_err = $Lastname_err  = $address_err = $city_err = $state_err = $zip_err = $ssnumber_err = $phone_err = $creditscore_err = "";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
-if(empty(trim($_POST["Firstname"]))){
+
+  if(empty(trim($_POST["Firstname"]))){
     $Firstname_err = "First name cannot be blank";
 }
-else{
-    $sql = "SELECT id FROM loanqualification WHERE Firstname = ?";
+  else{
+    $sql = "SELECT id FROM creditqualifications WHERE Firstname = ?";
     $stmt = mysqli_prepare($conn, $sql);
-    if($stmt)
-    {
-        mysqli_stmt_bind_param($stmt, "s", $param_Firstname);
-
-        $param_Firstname = trim($_POST['Firstname']);
-        if(mysqli_stmt_execute($stmt)){
+      if($stmt)
+      {
+         mysqli_stmt_bind_param($stmt, "s", $param_Firstname);
+         $param_Firstname = trim($_POST['Firstname']);
+        
+         if(mysqli_stmt_execute($stmt)){
             mysqli_stmt_store_result($stmt);
+            
         }
         else{
             echo "Something went wrong";
@@ -108,13 +110,12 @@ else{
 
 if(empty($Fristname_err) && empty($Lastname_err) && empty($address_err) && empty($city_err) && empty($state_err) && empty($zip_error) && empty($ssnumber_err) && empty ($phone_err) && empty($creditscore_err))
 {
-    $sql = "INSERT INTO loanqualifications (Firstname, Lastname, address, city, state, zip, ssnumber, phone, creditscore) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO creditqualifications (Firstname, Lastname, address, city, state, zip, ssnumber, phone, creditscore) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
     if ($stmt)
     {
         mysqli_stmt_bind_param($stmt, "sssssssss", $param_Firstname, $param_Lastname, $param_address, $param_city, $param_state, $param_zip, $param_ssnumber, $param_phone, $param_creditscore);
 
-        
         $param_Firstname = $Firstname;
         $param_Lastname=$Lastname;
         $param_address = $address;
@@ -129,21 +130,20 @@ if(empty($Fristname_err) && empty($Lastname_err) && empty($address_err) && empty
         {
           
         if($creditscore<400){
-          echo '<h1><span style="color:red;text-align:center;">You do not qualify for the loan. </span></h1>';
+          echo '<h1><span style="color:red;text-align:center;">You do not qualify for the Credit Card. </span></h1>';
         }
         else if($creditscore>=400 && $creditscore<600){
-          echo '<h1><span style="color:red;text-align:center;">You qualify for loan with intrest rate 5%. </span></h1>';
+          echo '<h1><span style="color:red;text-align:center;">You qualify for Credit Card with the credit limit of $800. </span></h1>';
         }
-        else if ($creditscore>=600 && $creditscore <700){
-          echo '<h1><span style="color:red;text-align:center;">You qualify for loan with intrest rate 3%. </span></h1>';
+          else if ($creditscore>=600 && $creditscore <700){
+          echo '<h1><span style="color:red;text-align:center;">You qualify for Credit Card with the credit limit of $1600. </span></h1>';
         }
         else if($creditscore>=700 && $creditscore<=850){
-          echo '<h1><span style="color:red;text-align:center;">You qualify for the loan with intrest rate 1% </span></h1>';
+          echo '<h1><span style="color:red;text-align:center;">You qualify for Credit Card with the credit limit of $3000. </span></h1>';
         }
         else{
           echo '<h1><span style="color:red;text-align:center;">Enter a valid number !</span></h1>';
-        }
-        
+        }  
       }
     }
 
@@ -158,10 +158,11 @@ mysqli_close($conn);
 <html lang="en">
 <head>
 <title>Quick Links</title>
-<script src="Script.js"></script>
+<script src="Creditscript.js"></script>
 <link rel="stylesheet" href="styleSheet.css">
 <meta charset="utf-8">
 </head>
+
   <body>
       <header>
           <a href="HomePage.php">
@@ -194,33 +195,28 @@ mysqli_close($conn);
       </ol>
    
     </nav>
-    </body><br><br><br><br><hr>
+    </body><br><br><br><br><br><hr>
 <body>
-    <h2>Apply for loan</h2>
-    <h3>Loan Products</h3>
-    <p>Since 1905, American Bank has been a trusted financial partner in providing lending solutions to meet your unique needs. 
-       Our loan products are competitively priced and have flexible terms to assist you in attaining your short and long-term goals. 
-       Our community banking approach provides for local decision making and easy access to our banking professionals.
-       Please call or stop by one of our branch offices for rates and additional information</p>
+    <h2>Apply for Credit Card</h2>
     
-    <h3>We offer a wide range of loans</h3>
+    <h3>We offer a wide range of Credit Cards</h3>
         <ul>
-            <li>New Automobile Loan</li>
-            <li>Used Automobile Loan</li>
-            <li>Personal Term Loan</li>
-            <li>Secured Saving Loan</li>
-            <li>House Loan</li>
-            <li>Medical Loan</li>
+            <li>Student Card</li>
+            <li>Travel Credit Card</li>
+            <li>Rewards Credit Card</li>
+            <li>Zero percent APR credit cards and low intrest rate Credit Card</li>
+            <li>Business Credit Card</li>
+            <li>Secured Credit Card</li>
         </ul>
        <main>
-           <div>Please fill the following data to know if you qualify for any loans.</div>
-        <br>
+           <div>Please fill the following data to know whether you qualify for the Credit card.</div>
+        <br><br>
            <div>
-            <form action="" onsubmit="return validatemyForm()"  method="post" enctype="multipart/form-data" name="Loan" id="Loan">
-                <label for="Firstname" id="fnameLabel">Firstname:</label>
+            <form action=""  onsubmit="return validatethisForm()" method="post" enctype="multipart/form-data" name="Credit" id="Credit">
+                <label for="Firstname" id="fnameLabel">First Name:</label>
                     <input type="text" name="Firstname" id="Firstname" placeholder="First Name">
                     <span class="error"><?php echo $Firstname_err;?></span><br><br>
-                <label for="Lastname" id="lnameLabel">Lastname: </label>
+                <label for="Lastname" id="lnameLabel">Last Name: </label>
                     <input type="text" name="Lastname" id="Lastname" placeholder="Last Name">
                     <span class="error"><?php echo $Lastname_err;?></span><br><br>
                <label for="address" id="addressLabel">Address:</label>
@@ -250,12 +246,12 @@ mysqli_close($conn);
             </form>
             </div>
             </main>
-  </body>
+            </body>
             <footer class="footer" id="pgFooter">
-            <div class="CUcolor">Contact Us:<br>
+        <div class="CUcolor">Contact Us:<br>
             <a href="tel:5706584586">Call: 5706584586</a> <br>
              <a href="tel:8888693857">Toll Free: 888-869-3857</a><br>
              <a href="mailto:customerserive@ab.com">customerserive@ab.com</a>
-             </div>
-            </footer>
-</html>
+        </div>
+</footer>
+            </html>
