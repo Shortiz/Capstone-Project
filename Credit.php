@@ -130,19 +130,19 @@ if(empty($Fristname_err) && empty($Lastname_err) && empty($address_err) && empty
         {
           
         if($creditscore<400){
-          echo '<h1><span style="color:red;text-align:center;">You do not qualify for the Credit Card. </span></h1>';
+          echo '<h1 class="credit">You do not qualify for the Credit Card. </h1>';
         }
         else if($creditscore>=400 && $creditscore<600){
-          echo '<h1><span style="color:red;text-align:center;">You qualify for Credit Card with the credit limit of $800. </span></h1>';
+          echo '<h1 class="credit">You qualify for Credit Card with the credit limit of $800. </h1>';
         }
           else if ($creditscore>=600 && $creditscore <700){
-          echo '<h1><span style="color:red;text-align:center;">You qualify for Credit Card with the credit limit of $1600. </span></h1>';
+          echo '<h1 class="credit">You qualify for Credit Card with the credit limit of $1600. </h1>';
         }
         else if($creditscore>=700 && $creditscore<=850){
-          echo '<h1><span style="color:red;text-align:center;">You qualify for Credit Card with the credit limit of $3000. </span></h1>';
+          echo '<h1 class="credit">You qualify for Credit Card with the credit limit of $3000. </h1>';
         }
         else{
-          echo '<h1><span style="color:red;text-align:center;">Enter a valid number !</span></h1>';
+          echo '<h1 class="credit">Enter a valid number !</h1>';
         }  
       }
     }

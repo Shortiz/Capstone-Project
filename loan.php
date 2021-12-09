@@ -129,19 +129,19 @@ if(empty($Fristname_err) && empty($Lastname_err) && empty($address_err) && empty
         {
           
         if($creditscore<400){
-          echo '<h1><span style="color:red;text-align:center;">You do not qualify for the loan. </span></h1>';
+          echo '<h1 class="loan">You do not qualify for the loan. </h1>';
         }
         else if($creditscore>=400 && $creditscore<600){
-          echo '<h1><span style="color:red;text-align:center;">You qualify for loan with intrest rate 5%. </span></h1>';
+          echo '<h1 class="loan">You qualify for loan with intrest rate 5%. </h1>';
         }
         else if ($creditscore>=600 && $creditscore <700){
-          echo '<h1><span style="color:red;text-align:center;">You qualify for loan with intrest rate 3%. </span></h1>';
+          echo '<h1 class="loan">You qualify for loan with intrest rate 3%. </h1>';
         }
         else if($creditscore>=700 && $creditscore<=850){
-          echo '<h1><span style="color:red;text-align:center;">You qualify for the loan with intrest rate 1% </span></h1>';
+          echo '<h1 class="loan">You qualify for the loan with intrest rate 1%.</h1>';
         }
         else{
-          echo '<h1><span style="color:red;text-align:center;">Enter a valid number !</span></h1>';
+          echo '<h1 class="loan">Enter a valid number !</h1>';
         }
         
       }
