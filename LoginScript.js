@@ -1,8 +1,9 @@
 function validatetheForm(){
+    var isValid = true;
     var myForm = document.forms["Login"];
     var username = myForm["username"];
     var password = myForm["password"];
-var required1="<b>User Name: *required</b>";
+var required1="<b>User Name: *Required</b>";
 var required2="<b>Password: *Required</b>";
 if(username.value === ""){
     var usernameLabel = document.getElementById("usernameLabel");

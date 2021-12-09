@@ -1,6 +1,6 @@
-function validatemyForm(){
+function validatethisForm(){
     var isValid = true;
-    var myForm = document.forms["Loan"];
+    var myForm = document.forms["Credit"];
     var Firstname= myForm["Firstname"];
     var Lastname = myForm["Lastname"];
     var address = myForm["address"];
