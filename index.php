@@ -28,7 +28,7 @@ if(!isset($_SESSION['user_id']))
 				<div>
 					<h4>Online User</h4>
 				</div>
-					<p>Hi - <?php echo $_SESSION['username']; ?> - <a href="logout.php">Logout</a></p>
+					<p>Hi - <?php echo $_SESSION['username']; ?> - <a href="signOut.php">Sign Out</a></p>
 				<div class="table-responsive">
 				
 				<div id="user_details"></div>
