@@ -52,40 +52,58 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !==true)
   <h3><?php echo "Welcome " . $_SESSION['username']?>. You can now check your account details.</h3>
 
 <hr>
-<body>
-    <h1>Adam Williams</h1>
+    <h1>Leonard Long</h1>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <table border=1 >
     <th>Date</th>
     <th>Information</th>
     <th>Total</th>
     <th>Running Total</th>
+
 <tr>
-    <td>02-05-2021</td>
+    <td>09-30-2021</td>
+    <td>Savings Transfer</td>
+    <td>+200</td>
+    <td></td>
+</tr>    
+
+<tr>
+    <td>10-02-2021</td>
+    <td>PetSmart</td>
+    <td>-134</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>10-09-2021</td>
     <td>Check Deposit</td>
-    <td>200</td>
+    <td>+600</td>
     <td></td>
 </tr>
+
 <tr>
-    <td>04-01-2021</td>
-    <td>Car Payment</td>
-    <td>-150</td>
+    <td>10-13-2021</td>
+    <td>ATM Withdrawl</td>
+    <td>-200</td>
     <td></td>
 </tr>
+
 <tr>
-    <td>07-19-2021</td>
-    <td>Cash Deposit</td>
-    <td>1000</td>
+    <td>10-20-2021</td>
+    <td>Starbucks</td>
+    <td>-12</td>
     <td></td>
 </tr>
+
 <tr>
-    <td>07-29-2021</td>
-    <td>Rent</td>
-    <td>-550</td>
+    <td>10-25-2021</td>
+    <td>Venmo Transfer</td>
+    <td>+100</td>
     <td></td>
 </tr>
+
 </table>
-   <script>
+    <script>
         var total = 0;
 $("td:nth-child(3)").each(function( index ) {
   total = parseInt($(this).text()) + parseInt(total);
